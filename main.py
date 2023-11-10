@@ -25,16 +25,6 @@ def homepage():
 
     return render_template("index.html", title="Lenguajes y Automatas II", cadenaProcesada=cadenaProcesada)
 
-@app.route("/analisis-sintactico.html")
-def analisis_sintactico():
-    # Lógica para mostrar la página de análisis sintáctico
-    return render_template("analisis-sintactico.html")
-
-@app.route("/analisis-lexico.html")
-def analisis_lexico():
-    # Lógica para mostrar la página de análisis sintáctico
-    return render_template("analisis-lexico.html")
-
 if __name__ == "__main__":
     app.run(debug=True)
 
