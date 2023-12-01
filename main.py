@@ -33,7 +33,7 @@ def obtener_estrella_sentimiento(texto):
         calificacion_comentario = 'Regular'
 
     # Devolver la estrella
-    return calificacion_comentario
+    return estrella, calificacion_comentario
 
 # Texto que quieres analizar
 texto = "No me gustan los animales pero los cuido"
@@ -112,10 +112,13 @@ def analizar_sentimiento():
     entrada = request.get_json().get('inputText', '')
 
     # Llamar a la función para obtener la estrella del sentimiento
-    estrella_sentimiento = obtener_estrella_sentimiento(entrada)
+    estrella, calificacion_comentario = obtener_estrella_sentimiento(entrada)
 
-    # Devolver el resultado del análisis y la calificación
-    return jsonify({'result': estrella_sentimiento})
+    # Devolver el resultado del análisis, la estrella y el comentario
+    return jsonify({
+        'result': estrella,
+        'calificacion_comentario': calificacion_comentario
+    })
 
 @app.route("/", methods=["GET", "POST"])
 def homepage():
