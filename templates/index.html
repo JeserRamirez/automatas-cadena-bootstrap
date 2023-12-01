@@ -73,20 +73,20 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data.result); // Agrega esta línea
+                    console.log(data.calificacion_comentario); // Agrega esta línea
 
                     // Mostrar el resultado del análisis en el elemento resultadoAnalisis
                     var resultadoElement = document.getElementById("resultadoAnalisis");
 
                     // Modificar para mostrar el resultado y la calificación
-                    resultadoElement.innerHTML = `<strong>Resultado del Análisis:</strong> ${data.result}`;
+                    resultadoElement.innerHTML = `<strong>Resultado del Análisis:</strong> ${data.result} ${data.calificacion_comentario}`;
 
                     // Cambiar el color de fondo según la calificación del comentario
-                    if (data.result === "Positivo") {
+                    if (data.calificacion_comentario === "Positivo") {
                         resultadoElement.style.backgroundColor = "green";
-                    } else if (data.result === "Negativo") {
+                    } else if (data.calificacion_comentario === "Negativo") {
                         resultadoElement.style.backgroundColor = "red";
-                    } else if (data.result === "Regular") {
+                    } else if (data.calificacion_comentario === "Regular") {
                         resultadoElement.style.backgroundColor = "yellow";
                     }
                 })
